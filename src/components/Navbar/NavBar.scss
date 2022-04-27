@@ -1,0 +1,81 @@
+$thin-font: "IBM Plex Sans", sans-serif;
+$regular-font: "IBM Plex Serif", serif;
+$fraunces-font: "Fraunces", serif;
+
+* {
+    font-family: $regular-font ;
+}
+
+nav {
+  width: 100%;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1);
+  height: 55px;
+  .bars {
+    display: none;
+    height: 25px;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .cross {
+    display: none;
+  }
+  .showSecond {
+      transform: translateY(342px);
+  }
+  .nav-container {
+    display: grid;
+    grid-template-columns: 75px 50%;
+    height: 55px;
+    width: 100%;
+    margin-left: 0%;
+    justify-content: space-around;
+    align-items: center;
+    ul {
+      display: flex;
+      justify-self: end;
+      li {
+        width: 120px;
+        list-style: none;
+      }
+    }
+    .nav-logo {
+      align-self: center;
+    }
+    @media (max-width: 768px) {
+      ul {
+          display: none;
+      }  
+      .bars {
+        display: block;
+      }
+      .cross {
+        display: block;
+        height: 30px;
+        position: absolute;
+        right: 35px;
+        z-index: 2;
+        cursor: pointer;
+      }
+    }
+  }
+  .navbar-2 {
+      transition: transform 0.2s ease-in-out;
+      ul {
+          transform: translateY(-100%);
+          list-style: none;
+          background-color: rgb(84, 71, 207);
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 30vh;
+          justify-content: space-around;
+          align-items: center;
+          color: white;
+          position: absolute;
+          top: 0;
+      }
+  }
+}
