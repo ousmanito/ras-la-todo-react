@@ -1,6 +1,5 @@
-$thin-font: "IBM Plex Sans", sans-serif;
-$regular-font: "IBM Plex Serif", serif;
-$fraunces-font: "Fraunces", serif;
+@use '../../sass/index' as *;
+
 
 .header-container {
   @media (min-width: 1100px) {

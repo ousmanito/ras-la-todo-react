@@ -16,8 +16,8 @@ export default class NavBar extends Component {
           <div className="nav-container">
             <img className="nav-logo" alt="LOGO"></img>
             <ul>
-              <li>About</li>
-              <li>Courses</li>
+              <li>Acceuil</li>
+              <li>Features</li>
               <li>Contact</li>
             </ul>
             <img className="bars" src={bars} onClick={this.toggleMenu}></img>
