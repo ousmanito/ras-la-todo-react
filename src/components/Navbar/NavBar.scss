@@ -7,7 +7,7 @@
 nav {
   width: 100%;
   box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1);
-  height: 55px;
+  height: 75px;
   .bars {
     display: none;
     height: 25px;
@@ -25,18 +25,24 @@ nav {
   }
   .nav-container {
     display: grid;
-    grid-template-columns: 75px 50%;
-    height: 55px;
+    grid-template-columns: 75px 60%;
+    height: 35px;
     width: 100%;
     margin-left: 0%;
+    margin-top: calc(35px - ( 55px /2 ) );
     justify-content: space-around;
     align-items: center;
     ul {
       display: flex;
       justify-self: end;
       li {
-        width: 120px;
+        width: fit-content;
         list-style: none;
+        align-self: center;
+        padding: 0 20px;
+        button {
+          height: fit-content;
+        }
       }
     }
     .nav-logo {
