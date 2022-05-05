@@ -3,27 +3,27 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "../withRouter";
 import "./Login.css";
-import errorLogo from './error.svg'
+import errorLogo from "./error.svg";
 
 export class Login extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      username: "",
-      password: "",
-      token: "",
-      isWrong: null,
+      isWrong:
+        localStorage.getItem("isWrong") == null
+          ? null
+          : localStorage.getItem("isWrong"),
     };
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handlePWChange = this.handlePWChange.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
   }
 
-  componentWillUnmount() {
-      this.setState({
-          isWrong: null
-      })
+  componentDidMount() {
+    if (localStorage.getItem("token") !== null) {
+      window.location.assign("/tasks");
+    }
   }
 
   handleUserChange(e) {
@@ -48,40 +48,41 @@ export class Login extends Component {
       .then((res) => {
         this.setState({
           token: res.data.auth_token,
-          isWrong: false
         });
-        this.props.navigate('/tasks', {state: {token : res.data.auth_token}})
+        localStorage.setItem("token", res.data.auth_token);
+        localStorage.setItem("isWrong", false);
+        this.props.navigate("/tasks", {
+          state: { token: res.data.auth_token },
+        });
       })
       .catch((err) => {
-        console.log(err);
+        this.setState({
+          isWrong: true,
+        });
       });
-
-    if (this.state.isWrong === false) {
-    } 
-    else if(this.state.isWrong === true) {
-      this.setState({
-        isWrong: true,
-      });
-    }
   }
 
   render() {
     return (
       <>
-        <ul className="login-nav">
-          <img src="" alt="LOGO"></img>
+        <ul>
           <Link to="/">
-            <button className="btn">Acceuil</button>
+          <img src="" alt="LOGO"></img>
           </Link>
         </ul>
         <div className="auth-layout">
           <h1>Connexion</h1>
-          {this.state.isWrong === true && 
-          <div style={{display:'flex', alignItems:'center', border:'1px solid white', borderRadius:'1.618vw', padding: 9}}>
-              <img src={errorLogo} style={{height:30, padding:15}} alt="" ></img>
-              <h4 style={{color:'#E97D92'}}>Il y a un problème quelque part ...</h4>
-          </div>
-          }
+          {this.state.isWrong === true && (
+            <div className="error-box">
+              <img
+                className="error-logo"
+                src={errorLogo}
+                style={{ height: 30, padding: 15 }}
+                alt=""
+              ></img>
+              <h4>Il y a un problème quelque part ...</h4>
+            </div>
+          )}
           <form name="login-form">
             <div className="form-item">
               <label>
@@ -114,4 +115,3 @@ export class Login extends Component {
   }
 }
 export default withRouter(Login);
-

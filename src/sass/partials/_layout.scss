@@ -4,35 +4,40 @@
   display: grid;
   width: 75%;
   margin-inline: auto;
-  margin-top: 9%;
-  border: 1px grey solid;
+  margin-top: 10%;
+  border: 1px black solid;
+  box-shadow: 10px 7px 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: white;
   border-radius: 1.618vw;
   padding: 50px;
   max-width: 550px;
+  & * {
+    background-color: inherit;
+  }
 
 
   h1 {
     padding: 15px;
-    border-bottom: 1px solid white;
+    padding-left: 0;
+    border-bottom: 3px solid black;
     margin-bottom: 35px;
   }
 
 
   h3 {
       padding-bottom: 15px;
-  }
 
-  h4 {
-      
   }
-
 
   form {
       padding-bottom: 35px;
+
+      
   }
   label {
     display: block;
     padding: 10px 5px 0 0;
+
   }
   input[type="password"],
   input[type="text"]
@@ -40,6 +45,7 @@
     border: 1px solid grey;
     border-radius: 4px;
     padding: 10px;
+
   }
 }
 
@@ -56,3 +62,20 @@
     font-family: $thin-font;
     height: 54px;
   }
+
+
+  .login-nav {
+    display: flex;
+    width: calc(100% - 30px);
+    justify-content: space-around;
+    padding: 15px;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1);
+}
+
+.error-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 1.618vw;
+  padding: 9px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Header.css";
 import cover from './cover-artwork.webp'
+import { Link } from "react-router-dom";
 
 export default class Header extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class Header extends Component {
           Learn to code with our beginner-friendly tutorials and examples. Read
           tutorials, try examples, write programs, and learn to code.
         </h2>
-        <button>Commencer !</button>
+        <Link to="/tasks"><button>Commencer !</button></Link>
         <img alt = "" src={cover}></img>
       </div>
     </header>

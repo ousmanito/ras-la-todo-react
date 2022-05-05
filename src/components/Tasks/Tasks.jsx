@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { withRouter } from "../withRouter";
 
-export class Tasks extends Component {
+class Tasks extends Component {
   constructor(props) {
     super(props);
 
@@ -10,10 +10,17 @@ export class Tasks extends Component {
       tasks: [],
     };
   }
-  render() {
+ 
+  componentDidMount() {
+
+      if(localStorage.getItem('token') === null) {
+        window.location.assign('/login')
+      }
+      
+    
     axios
       .get("http://127.0.0.1:8000/api/task/", {
-        headers: { Authorization: `Token ${this.props.location.state.token}` },
+        headers: { Authorization: `Token ${localStorage.getItem("token")}` },
       })
       .then((res) => {
         this.setState({
@@ -23,13 +30,16 @@ export class Tasks extends Component {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  render() {
+    let todoList = this.state.tasks;
+    console.log(localStorage.getItem("isWrong"));
     return (
       <div>
-          {this.state.tasks.map((task) => {
-              return (
-                  <h1>{task.title}</h1>
-              )
-          })}
+        {todoList.map((task) => {
+          return <h1 key={task.key}>{task.title}</h1>;
+        })}
       </div>
     );
   }
