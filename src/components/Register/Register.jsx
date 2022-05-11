@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import errorLogo from "../Login/error.svg";
-import pic from "./login-pic.svg"
 import axios from "axios";
 import { withRouter } from "../withRouter";
 
@@ -23,7 +22,7 @@ export class Register extends Component {
   }
   componentDidMount() {
     if (localStorage.getItem("token") !== null) {
-      window.location.assign("/tasks");
+      window.location.assign("/tasks/all");
     }
   }
 
@@ -53,20 +52,22 @@ export class Register extends Component {
     console.log(this.state);
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/auth/users/", this.state)
+      .post("http://127.0.0.1:8000/api/auth/users/", {
+        username: this.state.username,
+        password: this.state.password,
+        re_password: this.state.re_password
+      })
       .then((res) => {
-        localStorage.removeItem("token");
-        localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("user_data", JSON.stringify(res.data));
         axios
           .post("http://127.0.0.1:8000/api/auth/token/login/", {
             username: res.data.username,
             password: this.state.password,
           })
           .then((res) => {
-            console.log("OKOKOKOKOK");
             localStorage.setItem("token", res.data.auth_token);
+            this.props.navigate("/tasks/all");
           });
-        this.props.navigate("/tasks");
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +86,9 @@ export class Register extends Component {
           </Link>
         </ul>
 
-        <div className="auth-layout">
+        <div className="auth-layout" style={{
+          marginTop: '2%'
+        }}>
           <h1>Créer un compte</h1>
           {!this.state.isAuth && (<div className="error-box">
             <img
@@ -109,14 +112,15 @@ export class Register extends Component {
               <h3>Mot de passe :</h3>
               <input type="password" onChange={this.handlePWChange}></input>
             </label>
-            <label>
+            <label style={{
+              marginBottom: 30
+            }}>
               <h3>Retaper le mot de passe :</h3>
               <input type="password" onChange={this.handlePW2Change}></input>
             </label>
 
             <button
               className="btn"
-              style={{ height: "45px", marginTop: "30px" }}
               type="submit"
               onClick={this.handleRegisterSubmit}
             >

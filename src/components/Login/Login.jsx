@@ -22,7 +22,7 @@ export class Login extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("token") !== null) {
-      window.location.assign("/tasks");
+      window.location.assign("/tasks/all");
     }
   }
 
@@ -46,14 +46,11 @@ export class Login extends Component {
         password: this.state.password,
       })
       .then((res) => {
-        this.setState({
-          token: res.data.auth_token,
-        });
+        console.log(res)
+        localStorage.setItem("user_details", JSON.stringify(res));
         localStorage.setItem("token", res.data.auth_token);
         localStorage.setItem("isWrong", false);
-        this.props.navigate("/tasks", {
-          state: { token: res.data.auth_token },
-        });
+        this.props.navigate("/tasks/all");
       })
       .catch((err) => {
         this.setState({
@@ -63,11 +60,12 @@ export class Login extends Component {
   }
 
   render() {
+    console.log(localStorage);
     return (
       <>
-        <ul>
+        <ul style={{ padding: 30 }}>
           <Link to="/">
-          <img src="" alt="LOGO"></img>
+            <img src="" alt="LOGO"></img>
           </Link>
         </ul>
         <div className="auth-layout">
@@ -89,13 +87,16 @@ export class Login extends Component {
                 <h3>Nom d'utilisateur :</h3>
                 <input type="text" onChange={this.handleUserChange}></input>
               </label>
-              <label>
+              <label
+                style={{
+                  marginBottom: 30,
+                }}
+              >
                 <h3>Mot de passe :</h3>
                 <input type="password" onChange={this.handlePWChange}></input>
               </label>
               <button
                 className="btn"
-                style={{ height: "45px", marginTop: "30px" }}
                 type="submit"
                 onClick={this.handleLoginSubmit}
               >

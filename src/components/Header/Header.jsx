@@ -17,7 +17,7 @@ export default class Header extends Component {
           Learn to code with our beginner-friendly tutorials and examples. Read
           tutorials, try examples, write programs, and learn to code.
         </h2>
-        <Link to="/tasks"><button>Commencer !</button></Link>
+        <Link to="/tasks/all"><button>Commencer !</button></Link>
         <img alt = "" src={cover}></img>
       </div>
     </header>

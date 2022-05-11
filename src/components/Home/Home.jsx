@@ -5,7 +5,7 @@ import NavBar from '../Navbar/NavBar'
 export default class Home extends Component {
   componentDidMount () {
     if(localStorage.getItem('token') !== null) {
-      window.location.assign('/tasks')
+      window.location.assign('/tasks/all')
     }
   }
   render() {

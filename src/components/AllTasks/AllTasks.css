@@ -70,78 +70,29 @@
   padding: 9px;
 }
 
-.header-container {
-  padding: 30px;
-  height: 100%;
-  margin-top: 10%;
-}
-@media (min-width: 1100px) {
-  .header-container {
-    display: grid;
-    grid-template-columns: 75% 25%;
-    width: 85%;
-    margin-left: 7.5%;
-  }
-}
-@media (min-width: 1430px) {
-  .header-container {
-    width: 65%;
-    margin-left: 17.5%;
-  }
-  .header-container img {
-    margin-right: 0 !important;
-  }
-}
-.header-container h1 {
-  font-family: "Fraunces", serif;
-  font-size: 45px;
-  padding: 20px 0;
-  align-self: center;
-}
-@media (min-width: 1270px) {
-  .header-container h1 {
-    font-size: 56px;
-  }
-}
-.header-container h2 {
-  font-family: "IBM Plex Sans", sans-serif;
+.details p {
+  margin-left: 10px;
+  font-size: 14px;
+  font-family: "IBM Plex Serif", serif;
   font-weight: 400;
-  font-size: 20px;
-  padding: 0 0 35px 0;
-  width: 77%;
-  max-width: 700px;
+}
+
+.task-container {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: auto 20px;
+}
+.task-container .checkbox {
   grid-column: 1;
+  grid-row: 1/3;
+  display: flex;
+  align-self: center;
+  border: 1px solid white;
+  padding: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
 }
-@media (minw-width: 1100px) {
-  .header-container h2 {
-    max-width: 500px;
-  }
-}
-.header-container button {
-  border: 0;
-  background-color: rgba(19, 31, 206, 0.618);
-  color: white;
-  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 0.7vw;
-  font-size: 18px;
-  font-family: "IBM Plex Sans", sans-serif;
-  grid-column: 1;
-  height: 54px;
-}
-.header-container img {
-  place-self: center;
-  display: none;
-  grid-column: 2;
-  grid-row: 1/4;
-}
-@media (min-width: 1100px) {
-  .header-container img {
-    display: block !important;
-    height: 350px;
-    margin-right: 145px;
-  }
+.task-container .details {
+  grid-column: 2/3;
 }

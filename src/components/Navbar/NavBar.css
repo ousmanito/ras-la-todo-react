@@ -29,9 +29,15 @@
   display: block;
   padding: 10px 5px 0 0;
 }
+.auth-layout input:focus {
+  outline: none !important;
+  border: 1px solid #719ECE !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 7px #719ECE;
+}
 .auth-layout input[type=password],
 .auth-layout input[type=text] {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 4px;
   padding: 10px;
 }

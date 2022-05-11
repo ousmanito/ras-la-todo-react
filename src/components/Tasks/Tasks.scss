@@ -1,0 +1,131 @@
+@use "../../sass/index" as *;
+.app-layout * {
+  background-color: #191d20;
+}
+
+.app-layout {
+  width: 100%;
+  height: 100%;
+
+  .board {
+    background-color: #121315;
+    color: white;
+    width: 100%;
+    grid-column: 2/3;
+    & * {
+      background-color: inherit;
+    }
+    .board-container {
+      width: 55%;
+      margin-left: 22.5%;
+      margin-top: 55px;
+      h1 {
+        padding: 25px 0;
+      }
+      
+      .task-container {
+        background-color: #191f23;
+        margin: 15px;
+        border-radius: 20px;
+        border: 1.6px solid rgb(74, 70, 70);
+        padding: 15px;
+        h2 {
+          padding: 10px;
+          font-family: $thin-font;
+          width: 85%;
+        }
+      }
+    }
+    .add-task {
+      display: flex;
+      justify-content: start;
+      padding: 25px;
+      img {
+        background-color: rgb(26, 26, 91);
+        border-radius: 50%;
+      }
+      h3 {
+        padding-left: 15px;
+      }
+    }
+  }
+  .sidebar {
+    background-color: rgb(11, 11, 11);
+    height: calc(100vh - 65px);
+    position: fixed;
+    width: 300px;
+
+    ul {
+      li {
+        display: flex;
+        height: 100%;
+        color: rgb(185, 176, 176);
+        background-color: #15181a;
+        border-radius: 0.268vw;
+        width: 85%;
+        margin: 15px;
+        list-style-type: none;
+        padding: 3px;
+        img {
+          padding: 10px;
+          height: 17px;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
+          align-self: center;
+          h4 {
+          }
+        }
+      }
+    }
+
+    * {
+      background-color: inherit;
+    }
+  }
+  .app-container {
+    display: grid;
+    grid-template-columns: 300px auto;
+    padding-top: 68px;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: fit-content;
+    & * {
+      background-color: #191d20;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        list-style: none;
+      }
+      img {
+        height: 16px;
+        padding: 16px;
+        display: flex;
+        align-self: center;
+      }
+      .search {
+        padding: 10px;
+        input {
+          border: 1px solid grey;
+          background: #272a2f url("./search.png") left no-repeat;
+          background-position: 10px;
+          background-size: 25px;
+          border-radius: 4px;
+          padding: 10px;
+          padding-left: 45px;
+          width: 320px;
+          font-size: $regular-font;
+          font-size: 18px;
+          font-weight: 400;
+          color: grey;
+        }
+      }
+    }
+  }
+}

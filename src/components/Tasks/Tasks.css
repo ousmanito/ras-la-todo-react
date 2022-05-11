@@ -1,0 +1,196 @@
+.auth-layout {
+  display: grid;
+  width: 75%;
+  margin-inline: auto;
+  margin-top: 10%;
+  border: 1px black solid;
+  box-shadow: 10px 7px 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 1.618vw;
+  padding: 50px;
+  max-width: 550px;
+}
+.auth-layout * {
+  background-color: inherit;
+}
+.auth-layout h1 {
+  padding: 15px;
+  padding-left: 0;
+  border-bottom: 3px solid black;
+  margin-bottom: 35px;
+}
+.auth-layout h3 {
+  padding-bottom: 15px;
+}
+.auth-layout form {
+  padding-bottom: 35px;
+}
+.auth-layout label {
+  display: block;
+  padding: 10px 5px 0 0;
+}
+.auth-layout input:focus {
+  outline: none !important;
+  border: 1px solid #719ECE !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 7px #719ECE;
+}
+.auth-layout input[type=password],
+.auth-layout input[type=text] {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.btn {
+  border: 0;
+  background-color: rgba(70, 80, 225, 0.618);
+  color: white;
+  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 0.7vw;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 54px;
+}
+
+.login-nav {
+  display: flex;
+  width: calc(100% - 30px);
+  justify-content: space-around;
+  padding: 15px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.error-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 1.618vw;
+  padding: 9px;
+}
+
+.app-layout * {
+  background-color: #191d20;
+}
+
+.app-layout {
+  width: 100%;
+  height: 100%;
+}
+.app-layout .board {
+  background-color: #121315;
+  color: white;
+  width: 100%;
+  grid-column: 2/3;
+}
+.app-layout .board * {
+  background-color: inherit;
+}
+.app-layout .board .board-container {
+  width: 55%;
+  margin-left: 22.5%;
+  margin-top: 55px;
+}
+.app-layout .board .board-container h1 {
+  padding: 25px 0;
+}
+.app-layout .board .board-container .task-container {
+  background-color: #191f23;
+  margin: 15px;
+  border-radius: 20px;
+  border: 1.6px solid rgb(74, 70, 70);
+  padding: 15px;
+}
+.app-layout .board .board-container .task-container h2 {
+  padding: 10px;
+  font-family: "IBM Plex Sans", sans-serif;
+  width: 85%;
+}
+.app-layout .board .add-task {
+  display: flex;
+  justify-content: start;
+  padding: 25px;
+}
+.app-layout .board .add-task img {
+  background-color: rgb(26, 26, 91);
+  border-radius: 50%;
+}
+.app-layout .board .add-task h3 {
+  padding-left: 15px;
+}
+.app-layout .sidebar {
+  background-color: rgb(11, 11, 11);
+  height: calc(100vh - 65px);
+  position: fixed;
+  width: 300px;
+}
+.app-layout .sidebar ul li {
+  display: flex;
+  height: 100%;
+  color: rgb(185, 176, 176);
+  background-color: #15181a;
+  border-radius: 0.268vw;
+  width: 85%;
+  margin: 15px;
+  list-style-type: none;
+  padding: 3px;
+}
+.app-layout .sidebar ul li img {
+  padding: 10px;
+  height: 17px;
+}
+.app-layout .sidebar ul li a {
+  text-decoration: none;
+  color: inherit;
+  align-self: center;
+}
+.app-layout .sidebar * {
+  background-color: inherit;
+}
+.app-layout .app-container {
+  display: grid;
+  grid-template-columns: 300px auto;
+  padding-top: 68px;
+}
+.app-layout nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.app-layout nav * {
+  background-color: #191d20;
+}
+.app-layout nav ul {
+  display: flex;
+  align-items: center;
+}
+.app-layout nav ul li {
+  list-style: none;
+}
+.app-layout nav ul img {
+  height: 16px;
+  padding: 16px;
+  display: flex;
+  align-self: center;
+}
+.app-layout nav ul .search {
+  padding: 10px;
+}
+.app-layout nav ul .search input {
+  border: 1px solid grey;
+  background: #272a2f url("./search.png") left no-repeat;
+  background-position: 10px;
+  background-size: 25px;
+  border-radius: 4px;
+  padding: 10px;
+  padding-left: 45px;
+  width: 320px;
+  font-size: "IBM Plex Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: grey;
+}
