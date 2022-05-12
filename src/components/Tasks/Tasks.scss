@@ -11,6 +11,7 @@
     background-color: #121315;
     color: white;
     width: 100%;
+    min-height: calc(100vh - 68px);
     grid-column: 2/3;
     & * {
       background-color: inherit;
@@ -38,7 +39,7 @@
     }
     .add-task {
       display: flex;
-      justify-content: start;
+      justify-content:flex-start;
       padding: 25px;
       img {
         background-color: rgb(26, 26, 91);
@@ -74,8 +75,7 @@
           text-decoration: none;
           color: inherit;
           align-self: center;
-          h4 {
-          }
+        
         }
       }
     }

@@ -9,10 +9,8 @@
 }
 .task-container {
   display: grid;
-  grid-template-columns: 50px auto ;
+  grid-template-columns: 50px auto;
   grid-template-rows: auto 20px;
-
- 
 
   .checkbox {
     grid-column: 1;
@@ -27,5 +25,43 @@
   }
   .details {
     grid-column: 2/3;
+  }
+}
+
+.add-menu {
+  padding: 15px;
+  border: 0.2px solid grey;
+  border-radius: 1.6vw;
+  input[type="text"],
+  textarea {
+    width: 95%;
+    outline: none;
+    border: 0;
+    color: white;
+    padding: 15px;
+    font-family: $fraunces-font;
+    font-size: 20px;
+  }
+  input[type="date"] {
+    background-color: rgb(213, 210, 210);
+    text-align: center;
+    font-size: 15px;
+    border-radius: 3vw;
+    padding: 5px;
+    outline: none;
+    border: 0;
+  }
+  .date-menu {
+    display: flex;
+    width: 65%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn {
+    padding: 7px;
+    font-size: 14px;
+    height: fit-content;
+    color: black;
+    background-color: rgb(51, 80, 80);
   }
 }

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { withRouter } from "../withRouter";
 import "./Tasks.css";
 import timetable from "./timetable.png";
 import email from "./email.png";
@@ -10,9 +9,7 @@ import bars from "./bars.png";
 import home from "./home.png";
 import add from "./add.png";
 import logout from "./logout.png";
-import AllTasks from "../AllTasks/AllTasks";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
-import TodayTasks from "../TodayTasks/TodayTasks";
+import { Link, Outlet } from "react-router-dom";
 
 export default class Tasks extends Component {
   constructor(props) {
@@ -52,7 +49,6 @@ export default class Tasks extends Component {
   },
      {headers:{ Authorization: `Token ${localStorage.getItem("token")}`}})
     .then((res)=> {
-      console.log(res)
       localStorage.clear()
       window.location.assign('/')
     })
@@ -63,7 +59,6 @@ export default class Tasks extends Component {
 
   render() {
     let todoList = this.state.tasks;
-    console.log(localStorage)
     return (
       <>
         <div className="app-layout">
