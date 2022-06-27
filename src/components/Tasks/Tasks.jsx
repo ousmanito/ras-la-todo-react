@@ -25,7 +25,6 @@ export default class Tasks extends Component {
     if (localStorage.getItem("token") === null) {
       window.location.assign("/login");
     }
-
     axios
       .get("http://127.0.0.1:8000/api/task/", {
         headers: { Authorization: `Token ${localStorage.getItem("token")}` }
@@ -59,6 +58,7 @@ export default class Tasks extends Component {
 
   render() {
     let todoList = this.state.tasks;
+    localStorage.setItem('taches', JSON.stringify(todoList))
     return (
       <>
         <div className="app-layout">

@@ -7,6 +7,9 @@ import "./AllTasks.css";
 export default function AllTasks(props) {
   const [showAddMenu, setShowAddMenu] = useState(false);
   const [title, setTitle] = useState(null);
+  const defaultTodo = useOutletContext()
+  console.log(defaultTodo)
+  const [todoList, setTodoList] = useState(defaultTodo)
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(null);
   const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
@@ -33,9 +36,7 @@ export default function AllTasks(props) {
     "indigo",
     "orange",
   ];
-  let todoList = useOutletContext();
   todoList.sort((a,b) => {
-    console.log(new Date(a.date_created) - new Date(b.date_created))
     return new Date(b.date_created) - new Date(a.date_created) 
   })
   
@@ -65,7 +66,13 @@ export default function AllTasks(props) {
       headers: {Authorization: `Token ${localStorage.getItem("token")}`}
     })
     .then(res => {
-      console.log(res)
+      axios
+      .get("http;//127.0.0.1:8000/api/task/", {
+        headers: {Authorization: `Token ${localStorage.getItem('token')}`}
+      })
+      .then(res => {
+        setTodoList(res.data)
+      })
     })
     .catch(err => console.log(err))
 
@@ -120,7 +127,7 @@ export default function AllTasks(props) {
           switch (days[date.getDay()]) {
             default:
               day_color = 'white'
-              break
+              break;
             case "Lun":
               day_color = colors[0];
               break;
