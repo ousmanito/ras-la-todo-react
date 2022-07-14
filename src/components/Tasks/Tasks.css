@@ -97,16 +97,30 @@
   padding: 25px 0;
 }
 .app-layout .board .board-container .task-container {
-  background-color: #191f23;
-  margin: 15px;
-  border-radius: 20px;
+  border-radius: 0.1vw;
   border: 1.6px solid rgb(74, 70, 70);
+  border-left: 0;
+  border-right: 0;
   padding: 15px;
 }
-.app-layout .board .board-container .task-container h2 {
+.app-layout .board .board-container .task-container h3 {
   padding: 10px;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Fraunces", serif;
+  font-weight: 300;
   width: 85%;
+}
+.app-layout .board .board-container .task-container:nth-child(n+1) {
+  border-bottom: 0;
+}
+.app-layout .board .board-container .task-container:last-child {
+  border-bottom: 1.6px solid rgb(74, 70, 70);
+  margin-bottom: 30px;
+}
+.app-layout .board .board-container .task-container .checkbox:hover {
+  background-color: hsl(220deg, 8%, 10%);
+}
+.app-layout .board .board-container .task-container .checkbox:active {
+  background-color: hsl(220deg, 8%, 18%);
 }
 .app-layout .board .add-task {
   display: flex;

@@ -1,44 +1,26 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useOutletContext } from "react-router-dom";
+import { fetchTodos, todosSelectors } from "../../redux";
+import TaskItem from "../TaskItem/TaskItem";
 import add from "../Tasks/add.png";
 import "./AllTasks.css";
 
 export default function AllTasks(props) {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchTodos())
+  },[dispatch])
+  const todoListe = useSelector(todosSelectors.selectAll)
+  console.log(todoListe)
   const [showAddMenu, setShowAddMenu] = useState(false);
   const [title, setTitle] = useState(null);
-  const defaultTodo = useOutletContext()
-  console.log(defaultTodo)
-  const [todoList, setTodoList] = useState(defaultTodo)
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(null);
-  const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-  const months = [
-    "Jan",
-    "Fev",
-    "Mar",
-    "Avr",
-    "Mai",
-    "Juin",
-    "Juillet",
-    "Août",
-    "Septembre",
-    "Octobre",
-    "Novembre",
-    "Décembre",
-  ];
-  const colors = [
-    "red",
-    "blue",
-    "green",
-    "yellow",
-    "purple",
-    "indigo",
-    "orange",
-  ];
-  todoList.sort((a,b) => {
-    return new Date(b.date_created) - new Date(a.date_created) 
-  })
+  
+
   
   function handleDateChange(e) {
     setDate(
@@ -71,7 +53,6 @@ export default function AllTasks(props) {
         headers: {Authorization: `Token ${localStorage.getItem('token')}`}
       })
       .then(res => {
-        setTodoList(res.data)
       })
     })
     .catch(err => console.log(err))
@@ -85,6 +66,7 @@ export default function AllTasks(props) {
   return (
     <div className="tasks">
       <h1>Bonjour, {"Ousmane"}</h1>
+      <h1>Boîte de réception</h1>
       <div className="add-task"  onClick={() => {
         setShowAddMenu(!showAddMenu)
       }}>
@@ -118,49 +100,7 @@ export default function AllTasks(props) {
         </div>
       )}
       <div className="tasks">
-        {todoList.map((task, index) => {
-          let day_color;
-          let date = new Date(task.date);
-          let day_format = `${days[date.getDay()]} ${date.getDate()} ${
-            months[date.getMonth()]
-          } `;
-          switch (days[date.getDay()]) {
-            default:
-              day_color = 'white'
-              break;
-            case "Lun":
-              day_color = colors[0];
-              break;
-            case "Mar":
-              day_color = colors[1];
-              break;
-            case "Mer":
-              day_color = colors[2];
-              break;
-            case "Jeu":
-              day_color = colors[3];
-              break;
-            case "Ven":
-              day_color = colors[4];
-              break;
-            case "Sam":
-              day_color = colors[5];
-              break;
-            case "Dim":
-              day_color = colors[6];
-              break;
-          }
-          return (
-            <div key={task.key} className="task-container">
-              <div className="checkbox"></div>
-              <h2>{task.title}</h2>
-              <div className="details">
-                <p style={{ color: `${day_color}` }}>{day_format}</p>
-                <p>{}</p>
-              </div>
-            </div>
-          );
-        })}
+       <TaskItem tasks={todoListe}/>
       </div>
     </div>
   );
