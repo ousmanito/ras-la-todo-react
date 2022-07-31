@@ -69,3 +69,48 @@
   border-radius: 1.618vw;
   padding: 9px;
 }
+
+.add-menu {
+  padding: 15px;
+  border: 0.2px solid grey;
+  border-radius: 1.6vw;
+}
+.add-menu input[type=text],
+.add-menu textarea {
+  width: 95%;
+  outline: none;
+  border: 0;
+  color: white;
+  padding: 15px;
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+}
+.add-menu input[type=date] {
+  background-color: rgb(213, 210, 210);
+  text-align: center;
+  font-size: 15px;
+  border-radius: 3vw;
+  padding: 5px;
+  outline: none;
+  border: 0;
+}
+.add-menu .date-menu {
+  display: flex;
+  width: 45%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 25px 0 25px 0;
+}
+.add-menu .submit-panel button {
+  margin: 5px;
+}
+.add-menu .btn {
+  padding: 7px;
+  font-size: 14px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
+  background: none;
+  border: solid 2px rgb(93, 94, 97);
+}

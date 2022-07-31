@@ -71,7 +71,7 @@
 }
 
 .app-layout * {
-  background-color: #191d20;
+  background-color: inherit;
 }
 
 .app-layout {
@@ -85,9 +85,6 @@
   min-height: calc(100vh - 68px);
   grid-column: 2/3;
 }
-.app-layout .board * {
-  background-color: inherit;
-}
 .app-layout .board .board-container {
   width: 55%;
   margin-left: 22.5%;
@@ -97,30 +94,69 @@
   padding: 25px 0;
 }
 .app-layout .board .board-container .task-container {
+  display: grid;
+  grid-template-columns: 50px auto;
+  grid-template-rows: repeat(3, auto);
   border-radius: 0.1vw;
   border: 1.6px solid rgb(74, 70, 70);
   border-left: 0;
   border-right: 0;
   padding: 15px;
 }
+.app-layout .board .board-container .task-container p {
+  padding-left: 10px;
+  font-family: "Fraunces", serif;
+}
 .app-layout .board .board-container .task-container h3 {
-  padding: 10px;
+  padding-left: 10px;
   font-family: "Fraunces", serif;
   font-weight: 300;
   width: 85%;
+  grid-column: 2;
+}
+.app-layout .board .board-container .task-container h5 {
+  padding: 3px 10px 2px 10px;
+  font-size: 14px;
+  color: grey;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 400;
+  grid-row: 2/3;
+  grid-column: 2;
 }
 .app-layout .board .board-container .task-container:nth-child(n+1) {
   border-bottom: 0;
 }
+.app-layout .board .board-container .task-container:first-child {
+  border-top: 0;
+}
 .app-layout .board .board-container .task-container:last-child {
   border-bottom: 1.6px solid rgb(74, 70, 70);
   margin-bottom: 30px;
+}
+.app-layout .board .board-container .task-container .checkbox {
+  grid-column: 1;
+  grid-row: 2/3;
+  display: flex;
+  place-self: center;
+  border: 1px solid white;
+  padding: 10px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
 }
 .app-layout .board .board-container .task-container .checkbox:hover {
   background-color: hsl(220deg, 8%, 10%);
 }
 .app-layout .board .board-container .task-container .checkbox:active {
   background-color: hsl(220deg, 8%, 18%);
+}
+.app-layout .board .board-container .task-container .details {
+  grid-column: 2/3;
+}
+.app-layout .board .board-container .task-container .details p {
+  font-size: 14px;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 400;
 }
 .app-layout .board .add-task {
   display: flex;
@@ -153,7 +189,7 @@
 }
 .app-layout .sidebar ul li img {
   padding: 10px;
-  height: 17px;
+  height: 45px;
 }
 .app-layout .sidebar ul li a {
   text-decoration: none;
@@ -172,6 +208,7 @@
   display: flex;
   justify-content: space-between;
   position: fixed;
+  background-color: #191d20;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -187,7 +224,7 @@
   list-style: none;
 }
 .app-layout nav ul img {
-  height: 16px;
+  height: 55px !important;
   padding: 16px;
   display: flex;
   align-self: center;

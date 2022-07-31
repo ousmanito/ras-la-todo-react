@@ -15,30 +15,7 @@ export default class Tasks extends Component {
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this)
-
-    this.state = {
-      tasks: [],
-    };
   }
-
-  componentDidMount() {
-    if (localStorage.getItem("token") === null) {
-      window.location.assign("/login");
-    }
-    axios
-      .get("http://127.0.0.1:8000/api/task/", {
-        headers: { Authorization: `Token ${localStorage.getItem("token")}` }
-      })
-      .then((res) => {
-        this.setState({
-          tasks: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
 
   logout () {
     axios
@@ -57,8 +34,6 @@ export default class Tasks extends Component {
   }
 
   render() {
-    let todoList = this.state.tasks;
-    localStorage.setItem('taches', JSON.stringify(todoList))
     return (
       <>
         <div className="app-layout">
@@ -119,7 +94,7 @@ export default class Tasks extends Component {
             </span>
             <span className="board">
               <div className="board-container">
-                <Outlet context={todoList}/>
+                <Outlet/>
               </div>
             </span>
           </div>

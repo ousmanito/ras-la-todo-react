@@ -1,0 +1,48 @@
+@use "../../sass/index" as *;
+
+
+.add-menu {
+    padding: 15px;
+    border: 0.2px solid grey;
+    border-radius: 1.6vw;
+    input[type="text"],
+    textarea {
+      width: 95%;
+      outline: none;
+      border: 0;
+      color: white;
+      padding: 15px;
+      font-family: $fraunces-font;
+      font-size: 20px;
+    }
+    input[type="date"] {
+      background-color: rgb(213, 210, 210);
+      text-align: center;
+      font-size: 15px;
+      border-radius: 3vw;
+      padding: 5px;
+      outline: none;
+      border: 0;
+    }
+    .date-menu {
+      display: flex;
+      width: 45%;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 25px 0 25px 0;
+    }
+    .submit-panel {
+      button {
+        margin: 5px;
+      }
+    }
+    .btn {
+      padding: 7px;
+      font-size: 14px;
+      height: fit-content;
+      color: white;
+      background: none;
+      border: solid 2px rgb(93, 94, 97);
+    }
+  }
+  

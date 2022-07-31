@@ -1,5 +1,7 @@
 import React from "react";
-
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { deleteTodos } from "../../redux";
 const TaskItem = ({tasks}) => {
   const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
   const months = [
@@ -24,7 +26,12 @@ const TaskItem = ({tasks}) => {
     "purple",
     "indigo",
     "orange",
-  ];
+  ]; 
+  const dispatch = useDispatch()
+  const deleteTodo = (id) => {
+    dispatch(deleteTodos(id))
+  }
+  console.log(tasks)
   return (
     <>
       {Object.keys(tasks).map((key) => {
@@ -61,11 +68,11 @@ const TaskItem = ({tasks}) => {
         }
         return (
           <div key={tasks[key].key} className="task-container">
-            <div className="checkbox"></div>
+            <div className="checkbox" onClick={() => deleteTodo(tasks[key].key)}></div>
             <h3>{tasks[key].title}</h3>
+              <h5>{tasks[key].description}</h5>
             <div className="details">
               <p style={{ color: `${day_color}` }}>{day_format}</p>
-              <p>{}</p>
             </div>
           </div>
         );
