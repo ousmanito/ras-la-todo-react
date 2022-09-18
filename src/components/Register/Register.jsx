@@ -49,7 +49,6 @@ export class Register extends Component {
     });
   }
   handleRegisterSubmit(e) {
-    console.log(this.state);
     e.preventDefault();
     axios
       .post("http://127.0.0.1:8000/api/auth/users/", {
@@ -58,7 +57,8 @@ export class Register extends Component {
         re_password: this.state.re_password
       })
       .then((res) => {
-        localStorage.setItem("user_data", JSON.stringify(res.data));
+        console.log(res)
+        localStorage.setItem("user_details", JSON.stringify(res.data));
         axios
           .post("http://127.0.0.1:8000/api/auth/token/login/", {
             username: res.data.username,
@@ -70,7 +70,6 @@ export class Register extends Component {
           });
       })
       .catch((err) => {
-        console.log(err);
         this.setState({
           isAuth: false
         })

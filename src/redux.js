@@ -16,11 +16,15 @@ export const addTodos = createAsyncThunk("todos/addTodos", async ({title, descri
   .post("http://127.0.0.1:8000/api/task/", {
     title: title,
     description: description,
-    date: date
+    date: date,
+    user: JSON.parse(localStorage.getItem('user_details')).id
   }, {
     headers: {Authorization: `Token ${localStorage.getItem("token")}`}
   })
-  .then(res => res.data)
+  .then(res => {
+    console.log(res)
+    return res.data
+  })
   .catch(err => rejectWithValue(err))
 })
 
@@ -30,7 +34,14 @@ export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
     .get("http://127.0.0.1:8000/api/task/", {
       headers: { Authorization: `Token ${localStorage.getItem("token")}` },
     })
-    .then((res) => res.data)
+    .then((res) => {
+      console.log(res)
+      let tasks = res.data.filter((task) => {
+        return task.user == JSON.parse(localStorage.getItem('user_details')).id
+      })
+      console.log('res data',tasks)
+      return tasks
+    })
     .catch((err) => err);
 });
 
@@ -53,20 +64,17 @@ const todoSlice = createSlice({
       todoAdapter.setAll(state, action.payload)
     },
     [fetchTodos.rejected]: (state, {payload}) => {
-      console.log(payload)
     },
     [deleteTodos.fulfilled]: (state, {payload}) => {
       todoAdapter.removeOne(state, payload)
     },
     [deleteTodos.rejected]: (state, {payload}) => {
-      console.log(payload)
 
     },
     [addTodos.fulfilled]: (state, {payload}) => {
       todoAdapter.addOne(state, payload)
     },
     [addTodos.rejected]: (state, {payload}) => {
-      console.log(payload)
     }
   },
 });

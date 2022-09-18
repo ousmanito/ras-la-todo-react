@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodos } from "../../redux";
 const TaskItem = ({tasks}) => {
@@ -19,27 +18,41 @@ const TaskItem = ({tasks}) => {
     "Décembre",
   ];
   const colors = [
-    "red",
-    "blue",
+    "lightpink",
+    "lightblue",
+    "lightgreen",
     "green",
-    "yellow",
-    "purple",
-    "indigo",
+    "royalblue",
+    "aquamarine",
     "orange",
   ]; 
   const dispatch = useDispatch()
   const deleteTodo = (id) => {
     dispatch(deleteTodos(id))
   }
-  console.log(tasks)
   return (
     <>
       {Object.keys(tasks).map((key) => {
         let day_color;
         let date = new Date(tasks[key].date);
-        let day_format = `${days[date.getDay()]} ${date.getDate()} ${
+        let now = new Date()
+        if(date.getFullYear() == now.getFullYear()
+          && date.getMonth() == now.getMonth()
+          && date.getDate() == now.getDate() ) {
+            var day_format = "Aujourd'hui"
+        } 
+        else if(
+          date.getDate() - now.getDate() == 1
+          && date.getFullYear() == now.getFullYear()
+          && date.getMonth() == now.getMonth()
+        ) {
+          var day_format = "Demain"
+        }
+        else {
+          var day_format = `${days[date.getDay()]} ${date.getDate()} ${
           months[date.getMonth()]
         } `;
+        }       
         switch (days[date.getDay()]) {
           default:
             day_color = "white";
@@ -65,6 +78,12 @@ const TaskItem = ({tasks}) => {
           case "Dim":
             day_color = colors[6];
             break;
+        }
+        if(day_format == "Aujourd'hui") {
+          day_color = 'green'
+        } 
+        else if(day_format == "Demain") {
+          day_color = 'lightblue'
         }
         return (
           <div key={tasks[key].key} className="task-container">

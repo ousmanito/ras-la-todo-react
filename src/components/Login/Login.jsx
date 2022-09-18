@@ -46,10 +46,17 @@ export class Login extends Component {
         password: this.state.password,
       })
       .then((res) => {
-        console.log(res)
         localStorage.setItem("user_details", JSON.stringify(res));
         localStorage.setItem("token", res.data.auth_token);
         localStorage.setItem("isWrong", false);
+        axios
+         .get("http://127.0.0.1:8000/api/auth/users/me", {
+          headers : {Authorization: `Token ${localStorage.getItem('token')}`}
+         }).then((res) => {
+          let user_details = JSON.parse(localStorage.getItem('user_details'))
+          user_details['id'] = res.data.id
+          localStorage.setItem('user_details', JSON.stringify(user_details))
+         })
         this.props.navigate("/tasks/all");
       })
       .catch((err) => {
@@ -60,7 +67,6 @@ export class Login extends Component {
   }
 
   render() {
-    console.log(localStorage);
     return (
       <>
         <ul style={{ padding: 30 }}>

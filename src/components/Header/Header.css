@@ -1,3 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(245, 239, 235);
+}
+
+.btn {
+  border: 0;
+  background-color: rgba(70, 80, 225, 0.618);
+  color: white;
+  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 0.7vw;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 54px;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;
@@ -31,9 +50,9 @@
 }
 .auth-layout input:focus {
   outline: none !important;
-  border: 1px solid #719ECE !important;
-  border-color: #719ECE;
-  box-shadow: 0 0 7px #719ECE;
+  border: 1px solid #719ece !important;
+  border-color: #719ece;
+  box-shadow: 0 0 7px #719ece;
 }
 .auth-layout input[type=password],
 .auth-layout input[type=text] {
@@ -42,24 +61,17 @@
   padding: 10px;
 }
 
-.btn {
-  border: 0;
-  background-color: rgba(70, 80, 225, 0.618);
-  color: white;
-  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border-radius: 0.7vw;
-  font-size: 18px;
-  font-family: "IBM Plex Sans", sans-serif;
-  height: 54px;
-}
-
 .login-nav {
   display: flex;
   width: calc(100% - 30px);
   justify-content: space-around;
   padding: 15px;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .error-box {

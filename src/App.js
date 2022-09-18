@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Tasks from "./components/Tasks/Tasks";
-import TodayTasks from "./components/TodayTasks/TodayTasks";
-import AllTasks from "./components/AllTasks/AllTasks";
+import Main from "./components/Main/Main";
+import Today from "./components/Today/Today";
+import Inbox from "./components/Inbox/Inbox";
 import { store } from "./redux";
 import { Provider } from "react-redux";
 
@@ -18,9 +18,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="tasks/" element={<Tasks />}>
-              <Route path="all" element={<AllTasks />}></Route>
-              <Route path="today" element={<TodayTasks />} />
+            <Route path="tasks/" element={<Main />}>
+              <Route path="all" element={<Inbox />}></Route>
+              <Route path="today" element={<Today />} />
             </Route>
           </Routes>
         </BrowserRouter>

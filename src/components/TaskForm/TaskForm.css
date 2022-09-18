@@ -82,90 +82,87 @@
   padding: 9px;
 }
 
-* {
-  font-family: "IBM Plex Serif", serif;
+.add-form {
+  padding: 15px;
+  border: 0.2px solid grey;
+  border-radius: 1.6vw;
 }
-
-nav {
-  width: 100%;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
-  height: 75px;
+.add-form input[type=text], .add-form textarea {
+  width: 95%;
+  outline: none;
+  border: 0;
+  color: white;
+  padding: 15px;
+  font-family: "Fraunces", serif;
+  font-size: 20px;
 }
-nav .bars {
-  display: none;
-  height: 25px;
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  z-index: 2;
+.add-form input[type=date] {
   cursor: pointer;
+  color: rgb(55, 53, 53);
+  background-color: hsl(220deg, 8%, 20%);
+  text-align: center;
+  font-size: 15px;
+  border-radius: 3vw;
+  padding: 5px;
+  font-weight: 700;
+  outline: none;
+  color: hsl(0deg, 100%, 97%);
+  border: 1px solid grey;
+  margin-inline: 10px;
 }
-nav .cross {
-  display: none;
+.add-form input[type=date]:hover {
+  background-color: hsl(220deg, 8%, 27%);
 }
-nav .showSecond {
-  transform: translateY(342px);
-}
-nav .nav-container {
-  display: grid;
-  grid-template-columns: 75px 60%;
-  height: 35px;
-  width: 100%;
-  margin-left: 0%;
-  margin-top: 7.5px;
-  justify-content: space-around;
-  align-items: center;
-}
-nav .nav-container ul {
+.add-form .date-menu {
   display: flex;
-  justify-self: end;
+  align-items: center;
+  padding: 25px 0 25px 0;
 }
-nav .nav-container ul li {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  list-style: none;
-  align-self: center;
-  padding: 0 20px;
+.add-form .date-menu h2 {
+  padding: 15px;
+  font-family: "Fraunces", serif;
+  font-size: 20px;
+  color: grey;
 }
-nav .nav-container ul li button {
+.add-form .date-buttons {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 75%;
+}
+.add-form .date-buttons .btn-date {
+  font-family: "Fraunces", serif;
+  border: 1.618px solid grey;
+  border-radius: 10px;
+  margin-inline: 10px;
+  font-size: 15px;
+  color: white;
+  padding: 8px;
+  cursor: pointer;
+  background-color: hsl(220deg, 8%, 20%);
+}
+.add-form .date-buttons .btn-date:hover {
+  background-color: hsl(220deg, 8%, 27%);
+}
+.add-form .date-buttons .btn-date--blue {
+  color: hsl(219deg, 15%, 78%);
+}
+.add-form .date-buttons .btn-date--green {
+  color: hsl(156deg, 32%, 71%);
+}
+.add-form .submit-panel button {
+  padding: 7px;
+  font-size: 14px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  cursor: pointer;
+  margin: 5px;
+  background-color: hsl(240deg, 56%, 44%);
+  color: lightgrey;
+  padding: 9px;
+  height: fit-content;
 }
-nav .nav-container .nav-logo {
-  align-self: center;
-}
-@media (max-width: 768px) {
-  nav .nav-container ul {
-    display: none;
-  }
-  nav .nav-container .bars {
-    display: block;
-  }
-  nav .nav-container .cross {
-    display: block;
-    height: 30px;
-    position: absolute;
-    right: 35px;
-    z-index: 2;
-    cursor: pointer;
-  }
-}
-nav .navbar-2 {
-  transition: transform 0.2s ease-in-out;
-}
-nav .navbar-2 ul {
-  transform: translateY(-100%);
-  list-style: none;
-  background-color: rgb(84, 71, 207);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 30vh;
-  justify-content: space-around;
-  align-items: center;
-  color: white;
-  position: absolute;
-  top: 0;
+.add-form .submit-panel button:hover {
+  background-color: hsl(240deg, 56%, 34%);
 }

@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTodos, todosSelectors } from "../../redux";
 import TaskItem from "../TaskItem/TaskItem";
-import AddTask from "../AddTask/AddTask"
-import add from "../Tasks/add.png";
-import "./AllTasks.css";
+import AddTask from "../TaskForm/TaskForm"
+import add from "./add.png";
+import "./Inbox.css";
 
-export default function AllTasks(props) {
+export default function Inbox(props) {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchTodos())
@@ -20,9 +20,8 @@ export default function AllTasks(props) {
 
   return (
     <div className="tasks">
-      <h1>Bonjour, {"Ousmane"}</h1>
       <h1>Boîte de réception  </h1>
-      <div className="add-task"  onClick={() => {
+      <div className="add-task" onClick={() => {
           setShowAddMenu(!showAddMenu)
   }}>
         <img src={add} alt="ADD" />

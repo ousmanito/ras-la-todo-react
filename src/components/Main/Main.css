@@ -1,3 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(245, 239, 235);
+}
+
+.btn {
+  border: 0;
+  background-color: rgba(70, 80, 225, 0.618);
+  color: white;
+  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 0.7vw;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 54px;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;
@@ -31,27 +50,15 @@
 }
 .auth-layout input:focus {
   outline: none !important;
-  border: 1px solid #719ECE !important;
-  border-color: #719ECE;
-  box-shadow: 0 0 7px #719ECE;
+  border: 1px solid #719ece !important;
+  border-color: #719ece;
+  box-shadow: 0 0 7px #719ece;
 }
 .auth-layout input[type=password],
 .auth-layout input[type=text] {
   border: 1px solid black;
   border-radius: 4px;
   padding: 10px;
-}
-
-.btn {
-  border: 0;
-  background-color: rgba(70, 80, 225, 0.618);
-  color: white;
-  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  border-radius: 0.7vw;
-  font-size: 18px;
-  font-family: "IBM Plex Sans", sans-serif;
-  height: 54px;
 }
 
 .login-nav {
@@ -62,6 +69,11 @@
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .error-box {
   display: flex;
   align-items: center;
@@ -70,13 +82,18 @@
   padding: 9px;
 }
 
+:root {
+  --sidebar-width: 350px;
+}
+
 .app-layout * {
   background-color: inherit;
 }
 
-.app-layout {
-  width: 100%;
-  height: 100%;
+.app-layout .app-container {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) auto;
+  padding-top: 68px;
 }
 .app-layout .board {
   background-color: #121315;
@@ -91,7 +108,26 @@
   margin-top: 55px;
 }
 .app-layout .board .board-container h1 {
-  padding: 25px 0;
+  font-family: "Fraunces", serif;
+  font-size: 37px;
+  font-weight: 300;
+  padding: 25px 0px;
+}
+.app-layout .board .board-container .add-task {
+  display: flex;
+  justify-content: flex-start;
+  padding: 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+.app-layout .board .board-container .add-task img {
+  background-color: hsl(220deg, 8%, 16%);
+  border-radius: 50%;
+}
+.app-layout .board .board-container .add-task h3 {
+  padding-left: 15px;
 }
 .app-layout .board .board-container .task-container {
   display: grid;
@@ -158,91 +194,6 @@
   font-family: "IBM Plex Serif", serif;
   font-weight: 400;
 }
-.app-layout .board .add-task {
-  display: flex;
-  justify-content: flex-start;
-  padding: 25px;
-}
-.app-layout .board .add-task img {
-  background-color: rgb(26, 26, 91);
-  border-radius: 50%;
-}
-.app-layout .board .add-task h3 {
-  padding-left: 15px;
-}
-.app-layout .sidebar {
-  background-color: rgb(11, 11, 11);
-  height: calc(100vh - 65px);
-  position: fixed;
-  width: 300px;
-}
-.app-layout .sidebar ul li {
-  display: flex;
-  height: 100%;
-  color: rgb(185, 176, 176);
-  background-color: #15181a;
-  border-radius: 0.268vw;
-  width: 85%;
-  margin: 15px;
-  list-style-type: none;
-  padding: 3px;
-}
-.app-layout .sidebar ul li img {
-  padding: 10px;
-  height: 45px;
-}
-.app-layout .sidebar ul li a {
-  text-decoration: none;
-  color: inherit;
-  align-self: center;
-}
-.app-layout .sidebar * {
-  background-color: inherit;
-}
-.app-layout .app-container {
-  display: grid;
-  grid-template-columns: 300px auto;
-  padding-top: 68px;
-}
-.app-layout nav {
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  background-color: #191d20;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.app-layout nav * {
-  background-color: #191d20;
-}
-.app-layout nav ul {
-  display: flex;
-  align-items: center;
-}
-.app-layout nav ul li {
-  list-style: none;
-}
-.app-layout nav ul img {
-  height: 55px !important;
-  padding: 16px;
-  display: flex;
-  align-self: center;
-}
-.app-layout nav ul .search {
-  padding: 10px;
-}
-.app-layout nav ul .search input {
-  border: 1px solid grey;
-  background: #272a2f url("./search.png") left no-repeat;
-  background-position: 10px;
-  background-size: 25px;
-  border-radius: 4px;
-  padding: 10px;
-  padding-left: 45px;
-  width: 320px;
-  font-size: "IBM Plex Serif", serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: grey;
+.app-layout .hidden {
+  display: none;
 }
