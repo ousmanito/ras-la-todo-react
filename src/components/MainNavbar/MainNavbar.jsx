@@ -30,7 +30,7 @@ export const MainNavbar = (props) => {
         window.location.assign("/");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err)
       });
   };
   const toggleSidebar = () => {

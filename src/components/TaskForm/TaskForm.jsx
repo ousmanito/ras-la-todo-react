@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchTodos, addTodos } from "../../redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodos, fetchCategories, categoriesSelectors } from "../../redux";
 import "./TaskForm.css";
 
 export default function AddTask({ setMenu }) {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchTodos());
+    dispatch(fetchCategories());
   }, []);
+  const categories = useSelector(categoriesSelectors.selectAll)
   const [title, setTitle] = useState(null);
+  const [category, setCategory] = useState(null);
   const [description, setDescription] = useState("");
   const [date, setDate] = useState(null);
 
   function handleDateChange(e) {
-    console.log(e.target.value)
     setDate(e.target.value);
   }
   function setDateToday() {
@@ -39,13 +40,15 @@ export default function AddTask({ setMenu }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(addTodos({ title, description, date }));
+    dispatch(addTodos({ title, description, date, category }));
     setMenu(false);
   }
   function handleCancel() {
     setMenu(false);
   }
-
+  function handleCategoryChange(e) {
+    setCategory(e.target.value)
+  }
   return (
     <>
       <div className="add-form">

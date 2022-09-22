@@ -7,7 +7,7 @@ import AddTask from "../TaskForm/TaskForm"
 import add from "./add.png";
 import "./Inbox.css";
 
-export default function Inbox(props) {
+export default function Inbox() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchTodos())

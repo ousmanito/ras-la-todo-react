@@ -57,7 +57,6 @@ export class Register extends Component {
         re_password: this.state.re_password
       })
       .then((res) => {
-        console.log(res)
         localStorage.setItem("user_details", JSON.stringify(res.data));
         axios
           .post("http://127.0.0.1:8000/api/auth/token/login/", {

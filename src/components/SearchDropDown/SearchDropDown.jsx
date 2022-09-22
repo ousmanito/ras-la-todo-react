@@ -24,22 +24,18 @@ export const SearchDropDown = () => {
       for (const index in tasks) {
         if (
           (search !== "" &&
-          tasks[index].description
-          .toLowerCase()
-          .includes(search.toLowerCase())) ||
-          tasks[index].title.toLowerCase().includes(search.toLowerCase())
+          (tasks[index].description.toLowerCase().includes(search.toLowerCase())) ||
+          tasks[index].title.toLowerCase().includes(search.toLowerCase()))
           ) {
             resultIds.push(index);
-            setNoResults(false)
           } else {
-            setNoResults(true)
           }
+          resultIds.length == 0 ? setNoResults(true) : setNoResults(false)
           setResultIds(resultIds);
       }
     } else if (search == "") {
       setResultIds([]);
     }
-    console.log(results);
   };
   return (
     <>
