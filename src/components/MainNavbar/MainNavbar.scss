@@ -22,22 +22,7 @@ nav {
         align-self: center;
         cursor: pointer;
       }
-      .search {
-        padding: 10px;
-        input {
-          border: 1px solid grey;
-          background: #141313 url("./search.png") left no-repeat;
-          background-position: 10px;
-          background-size: 25px;
-          border-radius: 4px;
-          padding: 10px;
-          padding-left: 45px;
-          width: 320px;
-          font-size: $regular-font;
-          font-size: 18px;
-          font-weight: 400;
-          color: rgb(240, 240, 240);
-        }
-      }
+
+
     }
   }

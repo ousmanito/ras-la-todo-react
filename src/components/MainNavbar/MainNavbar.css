@@ -17,6 +17,10 @@
   height: 54px;
 }
 
+.hide {
+  display: none;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;
@@ -107,21 +111,4 @@ nav ul img, nav ul svg {
   display: flex;
   align-self: center;
   cursor: pointer;
-}
-nav ul .search {
-  padding: 10px;
-}
-nav ul .search input {
-  border: 1px solid grey;
-  background: #141313 url("./search.png") left no-repeat;
-  background-position: 10px;
-  background-size: 25px;
-  border-radius: 4px;
-  padding: 10px;
-  padding-left: 45px;
-  width: 320px;
-  font-size: "IBM Plex Serif", serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: rgb(240, 240, 240);
 }

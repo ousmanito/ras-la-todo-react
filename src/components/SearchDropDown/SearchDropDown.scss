@@ -1,0 +1,61 @@
+@use "../../sass/index" as *;
+
+.search {
+  padding: 10px;
+  input {
+    position: relative;
+    border: 1px solid grey;
+    background: #141313 url("./search.png") left no-repeat;
+    background-position: 10px;
+    background-size: 25px;
+    border-radius: 4px;
+    padding: 10px;
+    padding-left: 45px;
+    width: 320px;
+    font-size: $regular-font;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(240, 240, 240);
+  }
+}
+.noResults  {
+  display: block !important;
+}
+.searchItems {
+  margin: 10px;
+  // border: 1px solid white;
+  border-radius: 10px;
+  position: absolute;
+  top: 75%;
+  width: 324px;
+  background-color: hsl(220deg, 8%, 16%);
+  color: white;
+  div {
+    display: grid;
+    grid-template-columns: 50px auto auto;
+    padding: 15px;
+    width: 100%;
+    border-bottom: 1px solid white;
+    &:hover {
+      background-color: hsl(220deg, 8%, 24%);
+    }
+    &:first-child {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+    &:last-child {
+      border: none;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+    }
+    .checkbox {
+      border: 1px solid white;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      &:hover {
+        background-color: #686666;
+      }
+    }
+  }
+}

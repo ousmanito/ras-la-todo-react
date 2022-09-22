@@ -17,6 +17,10 @@
   height: 54px;
 }
 
+.hide {
+  display: none;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;
@@ -195,5 +199,10 @@
   font-weight: 400;
 }
 .app-layout .hidden {
-  display: none;
+  opacity: 0;
+  transition: 2s all ease;
+}
+.app-layout .hidden ul {
+  opacity: 0;
+  transition: 0.3s all ease;
 }

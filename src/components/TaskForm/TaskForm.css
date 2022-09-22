@@ -17,6 +17,10 @@
   height: 54px;
 }
 
+.hide {
+  display: none;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;
@@ -86,6 +90,7 @@
   padding: 15px;
   border: 0.2px solid grey;
   border-radius: 1.6vw;
+  z-index: 5;
 }
 .add-form input[type=text], .add-form textarea {
   width: 95%;
@@ -145,10 +150,10 @@
   background-color: hsl(220deg, 8%, 27%);
 }
 .add-form .date-buttons .btn-date--blue {
-  color: hsl(219deg, 15%, 78%);
+  color: hsl(197deg, 75%, 64%);
 }
 .add-form .date-buttons .btn-date--green {
-  color: hsl(156deg, 32%, 71%);
+  color: hsl(156deg, 85%, 59%);
 }
 .add-form .submit-panel button {
   padding: 7px;

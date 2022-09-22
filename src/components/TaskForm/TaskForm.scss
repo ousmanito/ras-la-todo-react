@@ -4,6 +4,7 @@
   padding: 15px;
   border: 0.2px solid grey;
   border-radius: 1.6vw;
+  z-index: 5;
   input[type="text"], textarea {
     width: 95%;
     outline: none;
@@ -61,10 +62,10 @@
         background-color: hsl(220, 8%, 27%);
       }
       &--blue {
-        color: hsl(219, 15%, 78%);
+        color: hsl(197, 75%, 64%);
       }
       &--green {
-        color: hsl(156, 32%, 71%);
+        color: hsl(156, 85%, 59%);
       }
     }
   }

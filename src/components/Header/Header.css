@@ -17,6 +17,10 @@
   height: 54px;
 }
 
+.hide {
+  display: none;
+}
+
 .auth-layout {
   display: grid;
   width: 75%;

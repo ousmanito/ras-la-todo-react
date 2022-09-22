@@ -1,15 +1,17 @@
 import React from "react";
-import './MainNavbar.css'
+import "./MainNavbar.css";
 import axios from "axios";
 import bars from "./bars.svg";
 import home from "./home.svg";
-import add from "./add.svg";
+import user from "./user.svg";
 import logoutImg from "./logout.svg";
 import { useState } from "react";
+import { SearchDropDown } from "../SearchDropDown/SearchDropDown";
 
 export const MainNavbar = (props) => {
-  const [isSidebarOpen, setSidebar] = useState(props.isSidebarOpen)  
+  const [isSidebarOpen, setSidebar] = useState(props.isSidebarOpen);
   let root = document.querySelector(":root");
+
   const logout = () => {
     const userData =
       JSON.parse(localStorage.getItem("user_data")) ||
@@ -23,7 +25,7 @@ export const MainNavbar = (props) => {
         },
         { headers: { Authorization: `Token ${localStorage.getItem("token")}` } }
       )
-      .then((res) => {
+      .then(() => {
         localStorage.clear();
         window.location.assign("/");
       })
@@ -46,11 +48,13 @@ export const MainNavbar = (props) => {
     document.querySelector("span.sidebar").classList.remove("hidden");
   };
 
-  
   const hideSidebar = () => {
     root.style.setProperty("--sidebar-width", "0px");
     document.querySelector("span.sidebar").classList.add("hidden");
   };
+
+ 
+
   return (
     <div>
       <nav>
@@ -67,22 +71,20 @@ export const MainNavbar = (props) => {
             <img src={home} style={{ height: 67 }} alt="" />
           </li>
           <li>
-            <div className="search">
-              <input type="text" placeholder="Rechercher" />
-            </div>
+           <SearchDropDown/>
           </li>
         </ul>
 
         <ul className="right_list">
           <li>
-            <img src={add} style={{ height: 55 }} alt="" />
+            <img src={user} style={{ height: 63 }} alt="" />
           </li>
           <li>
             <img
               src={logoutImg}
               onClick={logout}
-              style={{ height: 49 }}
-              alt="feklfjejfek"
+              style={{ height: 54 }}
+              alt=""
             />
           </li>
         </ul>

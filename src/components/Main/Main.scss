@@ -116,6 +116,12 @@
     }
   }
   .hidden {
-    display: none;
+    ul{
+      opacity: 0;
+      transition: 0.3s all ease;
+
+    }
+    opacity: 0;
+    transition: 2s all ease;
   }
 }
