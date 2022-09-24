@@ -19,7 +19,12 @@
   }
 }
 .noResults  {
-  display: block !important;
+  // display: block !important;
+  &.category h4 {
+    position: absolute;
+    padding: 10px;
+    background-color: #686666;
+  }
 }
 .searchItems {
   margin: 10px;

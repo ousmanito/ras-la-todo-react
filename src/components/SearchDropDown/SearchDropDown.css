@@ -105,8 +105,10 @@
   color: rgb(240, 240, 240);
 }
 
-.noResults {
-  display: block !important;
+.noResults.category h4 {
+  position: absolute;
+  padding: 10px;
+  background-color: #686666;
 }
 
 .searchItems {

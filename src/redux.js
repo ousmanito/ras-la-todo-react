@@ -26,7 +26,7 @@ export const addTodos = createAsyncThunk(
       .post(
         "http://127.0.0.1:8000/api/task/",
         {
-          category: category ? category : "NULL",
+          category: category,
           title: title,
           description: description,
           date: date,

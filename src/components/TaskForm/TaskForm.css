@@ -92,7 +92,8 @@
   border-radius: 1.6vw;
   z-index: 5;
 }
-.add-form input[type=text], .add-form textarea {
+.add-form input[type=text],
+.add-form textarea {
   width: 95%;
   outline: none;
   border: 0;
@@ -101,59 +102,66 @@
   font-family: "Fraunces", serif;
   font-size: 20px;
 }
-.add-form input[type=date] {
-  cursor: pointer;
-  color: rgb(55, 53, 53);
-  background-color: hsl(220deg, 8%, 20%);
-  text-align: center;
-  font-size: 15px;
-  border-radius: 3vw;
-  padding: 5px;
-  font-weight: 700;
-  outline: none;
-  color: hsl(0deg, 100%, 97%);
+.add-form .options-menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+.add-form #dateBtn:hover, .add-form #categoryBtn:hover {
+  background-color: hsl(225deg, 3%, 20%);
+}
+.add-form .form-opt-btn {
   border: 1px solid grey;
-  margin-inline: 10px;
-}
-.add-form input[type=date]:hover {
-  background-color: hsl(220deg, 8%, 27%);
-}
-.add-form .date-menu {
-  display: flex;
-  align-items: center;
-  padding: 25px 0 25px 0;
-}
-.add-form .date-menu h2 {
-  padding: 15px;
-  font-family: "Fraunces", serif;
-  font-size: 20px;
-  color: grey;
-}
-.add-form .date-buttons {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 75%;
-}
-.add-form .date-buttons .btn-date {
-  font-family: "Fraunces", serif;
-  border: 1.618px solid grey;
-  border-radius: 10px;
-  margin-inline: 10px;
-  font-size: 15px;
-  color: white;
-  padding: 8px;
+  background-color: hsl(225deg, 3%, 29%);
+  border-radius: 4px;
+  padding: 5px 12px;
+  margin-right: 10px;
+  position: relative;
   cursor: pointer;
-  background-color: hsl(220deg, 8%, 20%);
 }
-.add-form .date-buttons .btn-date:hover {
-  background-color: hsl(220deg, 8%, 27%);
+.add-form .form-opt-btn.selected {
+  background-color: hsl(210deg, 3%, 16%);
 }
-.add-form .date-buttons .btn-date--blue {
-  color: hsl(197deg, 75%, 64%);
+.add-form .category-container {
+  position: absolute;
+  border-radius: 4px;
 }
-.add-form .date-buttons .btn-date--green {
-  color: hsl(156deg, 85%, 59%);
+.add-form .category-item {
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+.add-form .category-box {
+  display: flex;
+  gap: 10px;
+  padding: 7px 14px;
+  background-color: hsl(225deg, 3%, 29%);
+  font-family: "Fraunces", serif;
+}
+.add-form .category-box:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+.add-form .category-box:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.add-form .rdp {
+  position: absolute;
+  left: -3%;
+  top: 72%;
+  background-color: hsla(0deg, 0%, 32%, 0.936);
+  padding: 20px;
+  border-radius: 4px;
+}
+.add-form .rdp-months {
+  border-radius: 15px;
+}
+.add-form .rdp-day_selected:focus:not([disabled]) {
+  outline: none;
+  outline-offset: none;
+  z-index: none;
 }
 .add-form .submit-panel button {
   padding: 7px;
