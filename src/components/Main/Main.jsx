@@ -1,14 +1,21 @@
 import React from "react";
 import "./Main.css";
+import {useSelector} from "react-redux";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { MainNavbar } from "../MainNavbar/MainNavbar";
 import { Sidebar } from "../Sidebar/Sidebar";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import { store } from "../../redux.js"
+
 
 const Tasks = () => {
   let root = document.querySelector(":root");
-
+  let todoError = useSelector((state) => state.todos.error) 
+  let categoryError = useSelector((state) => state.categories.error) 
+  let taskCategoryError = useSelector((state) => state.taskCategories.error)
+  const isError = todoError && categoryError && taskCategoryError
   let [isSidebarOpen, setSidebar] = useState(true);
 
   useEffect(() => {
@@ -47,7 +54,7 @@ const Tasks = () => {
          <Sidebar/>
           <span className="board">
             <div className="board-container">
-              <Outlet />
+              {isError ? <ErrorPage /> : <Outlet />}
             </div>
           </span>
         </div>

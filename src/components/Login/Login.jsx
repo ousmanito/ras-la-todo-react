@@ -21,9 +21,9 @@ export class Login extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token") !== null) {
-      window.location.assign("/tasks/all");
-    }
+    // if (localStorage.getItem("token") !== null) {
+    //   window.location.assign("/tasks/all");
+    // }
   }
 
   handleUserChange(e) {

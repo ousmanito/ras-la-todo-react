@@ -19,7 +19,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="tasks/" element={<Main />}>
-              <Route path="all" element={<Inbox />}></Route>
+              <Route path="all" element={<Inbox />}/>
               <Route path="today" element={<Today />} />
             </Route>
           </Routes>

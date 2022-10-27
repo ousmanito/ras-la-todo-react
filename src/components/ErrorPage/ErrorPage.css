@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(245, 239, 235);
+}
+
+.btn {
+  border: 0;
+  background-color: rgba(70, 80, 225, 0.618);
+  color: white;
+  box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 0.7vw;
+  font-size: 18px;
+  font-family: "IBM Plex Sans", sans-serif;
+  height: 54px;
+}
+
+.hide {
+  display: none;
+}
+
+.auth-layout {
+  display: grid;
+  width: 75%;
+  margin-inline: auto;
+  margin-top: 10%;
+  border: 1px black solid;
+  box-shadow: 10px 7px 1px 3px rgba(0, 0, 0, 0.5);
+  background-color: white;
+  border-radius: 1.618vw;
+  padding: 50px;
+  max-width: 550px;
+}
+.auth-layout * {
+  background-color: inherit;
+}
+.auth-layout h1 {
+  padding: 15px;
+  padding-left: 0;
+  border-bottom: 3px solid black;
+  margin-bottom: 35px;
+}
+.auth-layout h3 {
+  padding-bottom: 15px;
+}
+.auth-layout form {
+  padding-bottom: 35px;
+}
+.auth-layout label {
+  display: block;
+  padding: 10px 5px 0 0;
+}
+.auth-layout input:focus {
+  outline: none !important;
+  border: 1px solid #719ece !important;
+  border-color: #719ece;
+  box-shadow: 0 0 7px #719ece;
+}
+.auth-layout input[type=password],
+.auth-layout input[type=text] {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.login-nav {
+  display: flex;
+  width: calc(100% - 30px);
+  justify-content: space-around;
+  padding: 15px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.register-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.error-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 1.618vw;
+  padding: 9px;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#error-container__img {
+  height: 250px;
+  width: 250px;
+}
+
+#error-container__title {
+  font-weight: 700;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 50px;
+  color: purple;
+  position: relative;
+}
+#error-container__title::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 20%;
+  height: 24px;
+  width: 75%;
+  background-color: purple;
+  border-radius: 5px;
+  opacity: 0.4;
+}
+
+#error-container__content {
+  font-family: "IBM Plex Sans", sans-serif;
+}

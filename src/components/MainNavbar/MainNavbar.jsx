@@ -25,7 +25,7 @@ export const MainNavbar = (props) => {
         },
         { headers: { Authorization: `Token ${localStorage.getItem("token")}` } }
       )
-      .then(() => {
+      .then((res) => {
         localStorage.clear();
         window.location.assign("/");
       })
